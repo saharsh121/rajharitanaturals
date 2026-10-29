@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farmers / Kisan Supply · Rajharita Naturals</title>
+    <link rel="stylesheet" th:href="@{/css/farmer.css(v=20261023)}" />
+    <link rel="stylesheet" th:href="@{/css/module-background.css(v=20261026-1830)}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bold-font-page">
+
+    <!-- ============ NAVIGATION BAR ============ -->
+    <header class="site-header">
+        <nav class="nav-bar">
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/investment}">Investment</a>
+            <a th:href="@{/farmer}" aria-current="page">Farmers</a>
+            <a th:href="@{/odop}">ODOP</a>
+            <a th:href="@{/b2b}">B2B</a>
+            <a th:href="@{/contact}">Contact</a>
+            <a th:href="@{/login}">Login</a>
+            <a th:href="@{/admin}">Admin</a>
+        </nav>
+    </header>
+
+    <!-- ============ MAIN ============ -->
+    <main class="farmer-main">
+
+        <!-- ========== HERO HEADING (on green background) ========== -->
+        <section class="farmer-hero">
+            <h1 class="hero-heading">Grow With Us, Earn With Us</h1>
+            <p class="hero-subheading">
+                <b>Sell your crop directly to Rajharita Naturals — no middlemen, no delay, fair price</b>
+            </p>
+        </section>
+
+        <!-- ========== WHITE CARD ========== -->
+        <div class="farmer-card">
+
+            <!-- LOGO -->
+            <a th:href="@{/}" class="farmer-logo-link">
+                <img th:src="@{/images/logo.png}" alt="Rajharita Naturals" class="farmer-logo" />
+            </a>
+
+            <!-- WHY SECTION -->
+            <section class="farmer-section">
+                <h2 class="section-heading">Why Sell to Rajharita Naturals?</h2>
+
+                <p class="section-text">
+                    We buy crops directly from farmers — no middlemen, no commission, no
+                    delayed payments. When you sell to us, you get a fair price for your
+                    hard work and a partner who respects your time. Our team visits your
+                    village for pickup, and payment reaches your account within 48 hours
+                    of collection. Every season, we buy — so you always have a reliable
+                    buyer for your crop.
+                </p>
+            </section>
+
+            <!-- HOW IT WORKS -->
+            <section class="farmer-section">
+                <h2 class="section-heading">How It Works</h2>
+
+                <p class="section-text">
+                    Getting started is easy and takes only a few minutes.<br>
+                    <strong>Step 1:</strong> Fill the short form below with your name,
+                    village, crop type and quantity available.<br>
+                    <strong>Step 2:</strong> Our team calls you within 24 hours to
+                    discuss price and pickup details.<br>
+                    <strong>Step 3:</strong> Once you agree, we visit your village,
+                    collect the crop, and weigh it in front of you.<br>
+                    <strong>Step 4:</strong> Payment is transferred directly to your
+                    bank account or UPI within 48 hours. That's it — simple, transparent
+                    and fair.
+                </p>
+            </section>
+
+            <!-- CALL CTA -->
+            <section class="farmer-cta">
+                <h2 class="section-heading">Ready to Start? Call Us Now</h2>
+
+                <a href="tel:+918318113885" class="call-btn">
+                    <span class="call-icon">📞</span>
+                    <span class="call-text">
+                        <strong>Call Us Directly</strong>
+                        <em>+91 8318113885</em>
+                    </span>
+                </a>
+
+                <p class="call-note">
+                    Prefer to talk? Just call — we'll help you in your language.
+                </p>
+            </section>
+
+            <!-- DIVIDER -->
+            <div class="divider">
+                <span>or fill this short form</span>
+            </div>
+
+            <!-- FORM -->
+            <form id="farmer-form" class="farmer-form" autocomplete="off">
+
+                <div class="form-row">
+                    <label for="f-name">Your Name *</label>
+                    <input type="text" id="f-name" placeholder="your name" required />
+                </div>
+
+                <div class="form-row">
+                    <label for="f-village">Village / District *</label>
+                    <input type="text" id="f-village" placeholder="your city name" required />
+                </div>
+
+                <div class="form-row">
+                    <label for="f-phone">Phone Number *</label>
+                    <input type="tel" id="f-phone" placeholder="+91XXXXXXXXXX" required />
+                </div>
+
+                <div class="form-row">
+                    <label for="f-crop">Crop / Product Type *</label>
+                    <select id="f-crop" required>
+                        <option value="">Select crop / product</option>
+                        <option value="Beetroot">Beetroot</option>
+                        <option value="Wheat">Wheat</option>
+                        <option value="Rice / Paddy">Rice / Paddy</option>
+                        <option value="Sugarcane">Sugarcane</option>
+                        <option value="Mustard">Mustard</option>
+                        <option value="Pulses">Pulses</option>
+                        <option value="Vegetables">Vegetables</option>
+                        <option value="Fruits">Fruits</option>
+                        <option value="Herbs">Herbs</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="f-quantity">Quantity Available *</label>
+                    <input type="text" id="f-quantity" placeholder="e.g. 500 kg or 5 acres" required />
+                </div>
+
+                <div class="form-row">
+                    <label for="f-contact">Preferred Contact *</label>
+                    <select id="f-contact" required>
+                        <option value="">How should we reach you?</option>
+                        <option value="Call">Call</option>
+                        <option value="WhatsApp">WhatsApp</option>
+                        <option value="Email">Email</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="f-message">Message (optional)</label>
+                    <textarea id="f-message" rows="3"
+                              placeholder="Anything else you'd like us to know?"></textarea>
+                </div>
+
+                <!-- hidden language field -->
+                <input type="hidden" id="f-language" value="en" />
+
+                <button type="submit" class="farmer-btn">Submit</button>
+            </form>
+
+            <!-- MESSAGE BOX -->
+            <div id="message-box" class="message-box"></div>
+
+        </div>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <p>© 2026 Rajharita Naturals. All rights reserved.</p>
+        <p>Pure by Nature. Made for Wellness.</p>
+    </footer>
+
+    <script th:src="@{/js/farmer.js}"></script>
+</body>
+</html>

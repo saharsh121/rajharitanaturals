@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My orders · Rajharita Naturals</title>
+    <link rel="stylesheet" th:href="@{/css/shop.css(v=20261028-2251)}" />
+    <link rel="stylesheet" th:href="@{/css/module-background.css(v=20261026-1830)}" />
+    <link rel="stylesheet" th:href="@{/css/coupon-showcase.css(v=20261028)}" />
+</head>
+<body class="orders-page">
+    <header class="customer-header">
+        <a class="customer-brand" href="/shop">Rajharita Naturals</a>
+        <nav class="customer-nav" aria-label="Customer navigation">
+            <a href="/shop">Shop</a>
+            <a href="/cart">Cart</a>
+            <a class="active" href="/orders" aria-current="page">My orders</a>
+        </nav>
+        <a class="account-link" href="/account">My account</a>
+    </header>
+    <div th:replace="~{fragments/coupon-showcase :: coupon-showcase}"></div>
+    <main>
+        <section class="intro"><p class="eyebrow">PURCHASE HISTORY</p><h1>My orders</h1></section>
+        <p id="message-box" role="status" aria-live="polite"></p>
+        <section id="orders-list" class="order-list"></section>
+    </main>
+    <script th:src="@{/js/coupon-showcase.js(v=20261028)}"></script>
+    <script th:src="@{/js/orders.js(v=20261030)}"></script>
+</body>
+</html>

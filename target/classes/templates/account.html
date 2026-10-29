@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Account · Rajharita Naturals</title>
+    <link rel="stylesheet" th:href="@{/css/account.css(v=20261028-2253)}" />
+    <link rel="stylesheet" th:href="@{/css/module-background.css(v=20261026-1830)}" />
+    <link rel="stylesheet" th:href="@{/css/coupon-showcase.css(v=20261028)}" />
+</head>
+<body>
+    <header class="customer-header">
+        <a class="customer-brand" th:href="@{/shop}">Rajharita Naturals</a>
+        <nav class="customer-nav" aria-label="Customer navigation">
+            <a href="/shop">Shop</a>
+            <a href="/cart">Cart</a>
+            <a href="/orders">My orders</a>
+        </nav>
+        <div class="header-actions">
+            <a class="account-link active" href="/account" aria-current="page">My account</a>
+            <button id="logout-button" class="header-button" type="button">Sign out</button>
+        </div>
+    </header>
+    <div th:replace="~{fragments/coupon-showcase :: coupon-showcase}"></div>
+
+    <main>
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow">ACCOUNT SETTINGS</p>
+                <h1>My account</h1>
+                <p id="account-identity">Loading your account…</p>
+            </div>
+        </section>
+        <div id="message-box" role="status" aria-live="polite"></div>
+
+        <section class="card loyalty-balance-card" aria-labelledby="loyalty-balance-title">
+            <div>
+                <p class="eyebrow">REWARDS</p>
+                <h2 id="loyalty-balance-title">Rajharita Coins</h2>
+                <p>Earn 1% of your paid order total after delivery. Use coins on a future order for ₹1 each, up to 50% of its total.</p>
+            </div>
+            <strong><span id="loyalty-balance">0</span><small> coins</small></strong>
+        </section>
+
+        <div class="settings-grid">
+            <section class="card">
+                <div class="card-heading">
+                    <span class="section-number">01</span>
+                    <div><h2>Personal details</h2><p>Keep your account information up to date.</p></div>
+                </div>
+                <form id="profile-form" class="form-grid">
+                    <div class="field">
+                        <label for="profile-name">Full name</label>
+                        <input id="profile-name" autocomplete="name" required />
+                    </div>
+                    <div class="field">
+                        <label for="profile-email">Email address</label>
+                        <input id="profile-email" type="email" autocomplete="email" disabled />
+                        <small>Your email is used for account verification.</small>
+                    </div>
+                    <div class="field">
+                        <label for="profile-contact">Mobile number</label>
+                        <input id="profile-contact" type="tel" autocomplete="tel" required />
+                    </div>
+                    <div class="field">
+                        <label for="profile-gender">Gender</label>
+                        <select id="profile-gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="primary-button field-wide">Save details</button>
+                </form>
+            </section>
+
+            <section class="card">
+                <div class="card-heading">
+                    <span class="section-number">02</span>
+                    <div><h2>Password & security</h2><p>Update your password using your current password or email verification.</p></div>
+                </div>
+                <form id="password-form" class="form-grid">
+                    <div class="field field-wide">
+                        <label for="current-password">Current password</label>
+                        <input id="current-password" type="password" autocomplete="current-password" required />
+                    </div>
+                    <div class="field field-wide">
+                        <label for="new-password">New password</label>
+                        <input id="new-password" type="password" minlength="8" autocomplete="new-password" required />
+                    </div>
+                    <button type="submit" class="primary-button field-wide">Update password</button>
+                </form>
+                <div class="reset-divider"><span>Forgot your current password?</span></div>
+                <button id="request-password-reset" class="secondary-button" type="button">Verify by email instead</button>
+                <form id="password-reset-form" class="form-grid reset-form" hidden>
+                    <p class="reset-note field-wide">We’ll email a one-time code to your account email. Enter it below with your new password.</p>
+                    <div class="field field-wide">
+                        <label for="account-reset-otp">Email verification code</label>
+                        <input id="account-reset-otp" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="\d{6}" required />
+                    </div>
+                    <div class="field field-wide">
+                        <label for="account-reset-password">New password</label>
+                        <input id="account-reset-password" type="password" minlength="8" autocomplete="new-password" required />
+                    </div>
+                    <button type="submit" class="primary-button field-wide">Verify code & set password</button>
+                </form>
+            </section>
+
+            <section class="card">
+                <div class="card-heading">
+                    <span class="section-number">03</span>
+                    <div><h2>Delivery addresses</h2><p>Manage the addresses available during checkout.</p></div>
+                </div>
+                <div id="address-list" class="address-list"></div>
+                <details class="address-editor">
+                    <summary id="address-editor-title">Add a delivery address</summary>
+                    <form id="address-form" class="form-grid">
+                        <input id="address-id" type="hidden" />
+                        <div class="field">
+                            <label for="address-recipient">Recipient name</label>
+                            <input id="address-recipient" autocomplete="name" required />
+                        </div>
+                        <div class="field">
+                            <label for="address-phone">Phone number</label>
+                            <input id="address-phone" type="tel" autocomplete="tel" required />
+                        </div>
+                        <div class="field field-wide">
+                            <label for="address-line1">Address line 1</label>
+                            <input id="address-line1" autocomplete="address-line1" required />
+                        </div>
+                        <div class="field field-wide">
+                            <label for="address-line2">Address line 2 <span>Optional</span></label>
+                            <input id="address-line2" autocomplete="address-line2" />
+                        </div>
+                        <div class="field">
+                            <label for="address-city">City</label>
+                            <input id="address-city" autocomplete="address-level2" required />
+                        </div>
+                        <div class="field">
+                            <label for="address-state">State</label>
+                            <input id="address-state" autocomplete="address-level1" required />
+                        </div>
+                        <div class="field">
+                            <label for="address-postal">Postal code</label>
+                            <input id="address-postal" autocomplete="postal-code" required />
+                        </div>
+                        <label class="check-label field-wide"><input id="address-default" type="checkbox" /> Make this my default address</label>
+                        <div class="form-actions field-wide">
+                            <button type="submit" class="primary-button">Save address</button>
+                            <button id="address-cancel" type="button" class="secondary-button">Cancel</button>
+                        </div>
+                    </form>
+                </details>
+            </section>
+
+            <section class="card">
+                <div class="card-heading">
+                    <span class="section-number">04</span>
+                    <div><h2>Website feedback & review</h2><p>Rate your experience and tell us what we can improve.</p></div>
+                </div>
+                <form id="feedback-form" class="form-grid">
+                    <div class="field">
+                        <label for="feedback-rating">Your rating</label>
+                        <select id="feedback-rating" required>
+                            <option value="">Choose stars</option>
+                            <option value="5">★★★★★ — Excellent</option>
+                            <option value="4">★★★★ — Very good</option>
+                            <option value="3">★★★ — Good</option>
+                            <option value="2">★★ — Could be better</option>
+                            <option value="1">★ — Needs improvement</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="feedback-title">Review title</label>
+                        <input id="feedback-title" maxlength="100" required />
+                    </div>
+                    <div class="field field-wide">
+                        <label for="feedback-message">Your feedback</label>
+                        <textarea id="feedback-message" rows="4" maxlength="2000" required></textarea>
+                    </div>
+                    <button type="submit" class="primary-button field-wide">Submit feedback</button>
+                </form>
+                <div id="feedback-history" class="engagement-history" aria-live="polite"></div>
+            </section>
+
+            <section class="card">
+                <div class="card-heading">
+                    <span class="section-number">05</span>
+                    <div><h2>Customer support</h2><p>Send us a question or issue. You can follow our reply here.</p></div>
+                </div>
+                <form id="support-form" class="form-grid">
+                    <div class="field">
+                        <label for="support-category">Topic</label>
+                        <select id="support-category" required>
+                            <option value="ORDER">Order</option>
+                            <option value="PAYMENT">Payment</option>
+                            <option value="DELIVERY">Delivery</option>
+                            <option value="ACCOUNT">Account</option>
+                            <option value="PRODUCT">Product</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="support-subject">Subject</label>
+                        <input id="support-subject" maxlength="120" required />
+                    </div>
+                    <div class="field field-wide">
+                        <label for="support-message">How can we help?</label>
+                        <textarea id="support-message" rows="4" maxlength="3000" required></textarea>
+                    </div>
+                    <button type="submit" class="primary-button field-wide">Send support request</button>
+                </form>
+                <div id="support-history" class="engagement-history" aria-live="polite"></div>
+            </section>
+
+            <section class="card danger-card">
+                <div>
+                    <p class="eyebrow danger-eyebrow">IRREVERSIBLE ACTION</p>
+                    <h2>Delete account</h2>
+                    <p>Permanently delete your account, saved addresses, cart, wishlist, and order history. Complete or cancel open orders and resolve pending refunds first. This cannot be undone.</p>
+                </div>
+                <form id="delete-account-form" class="delete-form">
+                    <label for="delete-account-password">Confirm your password</label>
+                    <input id="delete-account-password" type="password" autocomplete="current-password" required />
+                    <button type="submit" class="danger-button">Delete my account</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script th:src="@{/js/coupon-showcase.js(v=20261028)}"></script>
+    <script th:src="@{/js/account.js(v=20261026-2101)}"></script>
+</body>
+</html>

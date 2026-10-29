@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Sign in · Rajharita Naturals</title>
+    <link rel="stylesheet" th:href="@{/css/login.css(v=20261023)}" />
+    <link rel="stylesheet" th:href="@{/css/module-background.css(v=20261026-1830)}" />
+    <link rel="stylesheet" th:href="@{/css/advertisement-showcase.css(v=20261028-1110)}" />
+    <link rel="stylesheet" th:href="@{/css/coupon-showcase.css(v=20261028)}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="bold-font-page">
+    <header class="site-header">
+        <a class="site-brand" th:href="@{/}" aria-label="Rajharita Naturals home">
+            <span>Rajharita <strong>Naturals</strong></span>
+        </a>
+        <nav class="nav-bar" aria-label="Main navigation">
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/investment}">Investment</a>
+            <a th:href="@{/farmer}">Farmers</a>
+            <a th:href="@{/odop}">ODOP</a>
+            <a th:href="@{/b2b}">B2B</a>
+            <a th:href="@{/shop}">Shop</a>
+            <a th:href="@{/contact}">Contact</a>
+            <a th:href="@{/login}" aria-current="page">Login</a>
+            <a th:href="@{/admin}">Admin</a>
+        </nav>
+    </header>
+    
+    
+    <main class="auth-main">
+        <div class="auth-layout">
+            <aside class="auth-aside">
+                <div class="aside-content">
+                    <p class="aside-eyebrow">PURE BY NATURE</p>
+                    <h1>A little closer to a more natural way of living.</h1>
+                    <p class="aside-copy">Sign in to explore thoughtfully selected products, manage your orders, and keep your favourites close.</p>
+                    <div class="aside-note">
+                        <span class="aside-mark" aria-hidden="true">✳</span>
+                        <p>Thoughtful wellness.<br /><em>Made for everyday life.</em></p>
+                    </div>
+                </div>
+                <p class="aside-footer">RAJHARITA NATURALS <span>·</span> EST. WITH CARE</p>
+            </aside>
+
+            <section class="auth-card" aria-label="Account access">
+                <a th:href="@{/}" class="auth-logo-link">
+                    <img th:src="@{/images/logo.png}" alt="Rajharita Naturals" class="auth-logo" />
+                </a>
+
+                <div id="view-login" class="auth-view active">
+                    <p class="view-eyebrow">YOUR ACCOUNT</p>
+                    <h2 class="auth-title">Welcome back</h2>
+                    <p class="auth-subtitle">Sign in to continue to your account.</p>
+
+                    <form id="login-form" class="auth-form" autocomplete="on">
+                        <div class="form-field">
+                            <label for="login-username">Username, email or phone number</label>
+                            <input type="text" id="login-username" name="username" placeholder="Enter your username, email or phone number" autocomplete="username" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" name="password" placeholder="Enter your password" autocomplete="current-password" required />
+                        </div>
+                        <div class="form-options">
+                            <a href="#" id="go-reset">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="auth-btn">Sign in</button>
+                    </form>
+
+                    <p class="auth-switch">New to Rajharita? <a href="#" id="go-signup">Create an account</a></p>
+                </div>
+
+                <div id="view-signup" class="auth-view">
+                    <p class="view-eyebrow">JOIN OUR COMMUNITY</p>
+                    <h2 class="auth-title">Create your account</h2>
+                    <p class="auth-subtitle">A few details to get you started.</p>
+
+                    <form id="signup-form" class="auth-form signup-form" autocomplete="on">
+                        <div class="form-field">
+                            <label for="su-name">Full name</label>
+                            <input type="text" id="su-name" name="name" placeholder="Your full name" autocomplete="name" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="su-username">Username</label>
+                            <input type="text" id="su-username" name="username" placeholder="Choose a username" autocomplete="username" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="su-email">Email address</label>
+                            <input type="email" id="su-email" name="email" placeholder="you@example.com" autocomplete="email" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="su-contact">Mobile number</label>
+                            <input type="tel" id="su-contact" name="tel" placeholder="+91XXXXXXXXXX" autocomplete="tel" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="su-invitation">Invitation code <span class="optional-label">Optional</span></label>
+                            <input type="text" id="su-invitation" name="invitation" placeholder="Enter your code, if you have one" />
+                        </div>
+                        <div class="form-field">
+                            <label for="su-gender">Gender</label>
+                            <select id="su-gender" name="gender" required>
+                                <option value="">Select an option</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-field form-field-wide">
+                            <label for="su-password">Password</label>
+                            <input type="password" id="su-password" name="new-password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required />
+                        </div>
+                        <button type="submit" class="auth-btn form-field-wide">Create account</button>
+                    </form>
+
+                    <p class="auth-switch">Already have an account? <a href="#" id="go-login">Sign in</a></p>
+                </div>
+
+                <div id="view-reset" class="auth-view">
+                    <p class="view-eyebrow">ACCOUNT RECOVERY</p>
+                    <h2 class="auth-title">Reset your password</h2>
+                    <p class="auth-subtitle">We’ll send a one-time code to your email address.</p>
+                    <form id="request-reset-form" class="auth-form" autocomplete="on">
+                        <div class="form-field">
+                            <label for="reset-email">Email address</label>
+                            <input type="email" id="reset-email" name="email" placeholder="you@example.com" autocomplete="email" required />
+                        </div>
+                        <button type="submit" class="auth-btn">Send verification code</button>
+                    </form>
+                    <form id="complete-reset-form" class="auth-form" autocomplete="on" hidden>
+                        <div class="form-field">
+                            <label for="reset-otp">Email verification code</label>
+                            <input type="text" id="reset-otp" name="one-time-code" placeholder="Enter 6-digit code" maxlength="6" inputmode="numeric" pattern="\d{6}" autocomplete="one-time-code" required />
+                        </div>
+                        <div class="form-field">
+                            <label for="reset-password">New password</label>
+                            <input type="password" id="reset-password" name="new-password" placeholder="At least 8 characters" minlength="8" autocomplete="new-password" required />
+                        </div>
+                        <button type="submit" class="auth-btn">Update password</button>
+                    </form>
+                    <p class="auth-switch"><a href="#" id="go-login-reset">← Back to sign in</a></p>
+                </div>
+
+                <div id="view-otp" class="auth-view">
+                    <p class="view-eyebrow">ONE LAST STEP</p>
+                    <h2 class="auth-title">Check your email</h2>
+                    <p class="auth-subtitle">Enter the 6-digit verification code sent to <strong id="otp-target-email"></strong>.</p>
+                    <form id="otp-form" class="auth-form" autocomplete="on">
+                        <div class="form-field">
+                            <label for="otp-input">Verification code</label>
+                            <input type="text" id="otp-input" name="one-time-code" placeholder="Enter 6-digit code" maxlength="6" inputmode="numeric" pattern="\d{6}" autocomplete="one-time-code" required />
+                        </div>
+                        <button type="submit" class="auth-btn">Verify email</button>
+                    </form>
+                    <p class="auth-switch">Didn’t receive a code? <a href="#" id="resend-otp">Send a new code</a></p>
+                    <p class="auth-switch"><a href="#" id="go-back-signup">← Back to sign up</a></p>
+                </div>
+
+                <div id="message-box" class="message-box" role="status" aria-live="polite"></div>
+            </section>
+        </div>
+    </main>
+    <div th:replace="~{fragments/coupon-showcase :: coupon-showcase}"></div>
+    <br>
+    <br>
+      <div th:replace="~{fragments/advertisement-showcase :: showcase}"></div>
+    
+
+    <footer class="site-footer">
+        <p>© 2026 Rajharita Naturals. All rights reserved.</p>
+        <p>Pure by Nature. Made for Wellness.</p>
+    </footer>
+
+    <script th:src="@{/js/advertisement-showcase.js(v=20261028-1030)}" defer></script>
+    <script th:src="@{/js/coupon-showcase.js(v=20261028)}"></script>
+    <script th:src="@{/js/login.js(v=20261026)}"></script>
+</body>
+</html>

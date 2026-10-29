@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rajharita Naturals — Pure by Nature, Made for Wellness</title>
+    <link rel="stylesheet" th:href="@{/css/style.css(v=20261026)}" />
+    <link rel="stylesheet" th:href="@{/css/module-background.css(v=20261026-1830)}" />
+    <link rel="stylesheet" th:href="@{/css/advertisement-showcase.css(v=20261028-1110)}" />
+    <link rel="stylesheet" th:href="@{/css/coupon-showcase.css(v=20261028)}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bold-font-page">
+
+    <!-- ============ NAVIGATION BAR ============ -->
+        <!-- ============ NAVIGATION BAR ============ -->
+    <header class="site-header">
+        <nav class="nav-bar">
+            <a th:href="@{/}" aria-current="page">Home</a>
+            <a th:href="@{/investment}">Investment</a>
+            <a th:href="@{/farmer}">Farmers</a>
+            <a th:href="@{/odop}">ODOP</a>
+            <a th:href="@{/b2b}">B2B</a>
+            <a th:href="@{/shop}">Shop</a>
+            <a th:href="@{/contact}">Contact</a>
+            <a th:href="@{/login}">Login</a>
+            <a th:href="@{/admin}">Admin</a>
+        </nav>
+    </header>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="logo-frame">
+                <img th:src="@{/images/logo.png}" alt="Rajharita Naturals" class="hero-logo" />
+            </div>
+
+        </div>
+
+    </section>
+    <div th:replace="~{fragments/advertisement-showcase :: showcase}"></div>
+    <br>
+    <br>
+    <div th:replace="~{fragments/coupon-showcase :: coupon-showcase}"></div>
+    <section class="home-about" data-home-about aria-labelledby="home-about-title" hidden>
+        <div class="home-about-content">
+            <h2 id="home-about-title"></h2>
+            <p class="home-about-summary"></p>
+            <button type="button" class="home-about-read-more" aria-controls="home-about-full home-about-blocks" aria-expanded="false">Read On</button>
+            <div class="home-about-full" id="home-about-full" hidden></div>
+            <div class="home-about-blocks" id="home-about-blocks" hidden></div>
+        </div>
+    </section>
+
+    
+    <br>
+    <section class="home-message">
+        <div class="hero-badge">
+                <b>
+                🌿 100% Pure &amp; Natural · Trusted by Families
+                </b>
+        </div>
+
+            <h1 class="hero-title">
+                <span class="shimmer">Nature's Purest</span>
+            </h1>
+
+            <h2 class="hero-subtitle">
+                For Everyday Wellness
+            </h2>
+                    <p class="hero-desc">
+                <b>
+                Authentic natural products from Rajharita Naturals —
+                pure, organic, and crafted with care. From our signature
+                Beetroot Powder to a complete range of herbal essentials,
+                every product is made with love for your health.
+                </b>
+            </p>
+
+            <div class="hero-pills">
+                <span class="pill">🌿 All Herbal Products</span>
+            </div>
+
+            <a th:href="@{/shop}" class="hero-btn">
+                <span>Explore Products</span>
+            </a>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <p>© 2026 Rajharita Naturals. All rights reserved.</p>
+        <p>Pure by Nature. Made for Wellness.</p>
+        <nav class="footer-links" aria-label="Policies and support">
+            <a th:href="@{/policies#terms}">Terms &amp; Conditions</a>
+            <a th:href="@{/policies#privacy}">Privacy Policy</a>
+            <a th:href="@{/policies#returns}">Returns &amp; Refunds</a>
+            <a th:href="@{/contact}">Contact Support</a>
+        </nav>
+    </footer>
+
+    <script th:src="@{/js/advertisement-showcase.js(v=20261028-1030)}" defer></script>
+    <script th:src="@{/js/coupon-showcase.js(v=20261028)}"></script>
+</body>
+</html>

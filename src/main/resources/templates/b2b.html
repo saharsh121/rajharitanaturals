@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>B2B Bulk Sourcing · Rajharita Naturals</title>
+    <link rel="stylesheet" th:href="@{/css/b2b.css(v=20261023)}" />
+    <link rel="stylesheet" th:href="@{/css/module-background.css(v=20261026-1830)}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bold-font-page">
+
+    <!-- ============ NAVIGATION BAR ============ -->
+    <header class="site-header">
+        <nav class="nav-bar">
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/investment}">Investment</a>
+            <a th:href="@{/farmer}">Farmers</a>
+            <a th:href="@{/odop}">ODOP</a>
+            <a th:href="@{/b2b}" aria-current="page">B2B</a>
+            <a th:href="@{/contact}">Contact</a>
+            <a th:href="@{/login}">Login</a>
+            <a th:href="@{/admin}">Admin</a>
+        </nav>
+    </header>
+
+    <!-- ============ MAIN ============ -->
+    <main class="b2b-main">
+
+        <!-- ========== HERO HEADING (on green background) ========== -->
+        <section class="b2b-hero">
+            <h1 class="hero-heading">Bulk Sourcing, Simplified</h1>
+            <p class="hero-subheading">
+                <b>Source natural products in bulk directly from Rajharita Naturals</b>
+            </p>
+        </section>
+
+        <!-- ========== WHITE CARD ========== -->
+        <div class="b2b-card">
+
+            <!-- LOGO -->
+            <a th:href="@{/}" class="b2b-logo-link">
+                <img th:src="@{/images/logo.png}" alt="Rajharita Naturals" class="b2b-logo" />
+            </a>
+
+            <!-- WHY SECTION -->
+            <section class="b2b-section">
+                <h2 class="section-heading">Why Source From Rajharita Naturals?</h2>
+
+                <p class="section-text">
+                    We work directly with farmers and process our natural products
+                    in-house — which means no middlemen, no markups, and full
+                    traceability from farm to pack. Whether you are a retailer,
+                    distributor, exporter, or another manufacturer, we can supply
+                    you with pure, high-quality natural products in bulk at
+                    competitive rates. Every batch is quality-checked, and every
+                    order is backed by our supply commitment. Tell us what you
+                    need, and we'll prepare a formal quote.
+                </p>
+            </section>
+
+            <!-- HOW IT WORKS -->
+            <section class="b2b-section">
+                <h2 class="section-heading">How It Works</h2>
+
+                <p class="section-text">
+                    Getting a quote is easy and takes only a few minutes.<br>
+                    <strong>Step 1:</strong> Fill the short form below with your
+                    company details, material required and quantity.<br>
+                    <strong>Step 2:</strong> You may attach a requirement
+                    document (PDF / DOC / DOCX) if you have one.<br>
+                    <strong>Step 3:</strong> Our supply team reviews your request
+                    and confirms availability within 3 business days.<br>
+                    <strong>Step 4:</strong> We share a formal quote with pricing,
+                    delivery timeline and payment terms — simple, transparent,
+                    professional.
+                </p>
+            </section>
+
+            <!-- DIVIDER -->
+            <div class="divider">
+                <span>or fill this short form</span>
+            </div>
+
+            <!-- FORM -->
+            <form id="b2b-form" class="b2b-form" autocomplete="off"
+                  enctype="multipart/form-data">
+
+                <div class="form-row">
+                    <label for="b-company">Company Name *</label>
+                    <input type="text" id="b-company" placeholder="your company name" required />
+                </div>
+
+                <div class="form-row">
+                    <label for="b-person">Contact Person *</label>
+                    <input type="text" id="b-person" placeholder="your name" required />
+                </div>
+
+                <div class="form-row">
+                    <label for="b-email">Email *</label>
+                    <input type="email" id="b-email" placeholder="abc@gmail.com" required />
+                </div>
+
+                <div class="form-row">
+                    <label for="b-phone">Phone Number *</label>
+                    <input type="tel" id="b-phone" placeholder="+91XXXXXXXXXX" required />
+                </div>
+
+                <div class="form-row">
+                    <label for="b-material">Material Required *</label>
+                    <input type="text" id="b-material"
+                           placeholder="required material name" required />
+                </div>
+
+                <div class="form-row">
+                    <label for="b-quantity">Quantity Required *</label>
+                    <input type="text" id="b-quantity"
+                           placeholder="your required quantity" required />
+                </div>
+
+                <div class="form-row">
+                    <label for="b-frequency">Order Frequency *</label>
+                    <select id="b-frequency" required>
+                        <option value="">Select frequency</option>
+                        <option value="One-time">One-time</option>
+                        <option value="Recurring">Recurring</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="b-location">Delivery Location *</label>
+                    <input type="text" id="b-location"
+                           placeholder="your address" required />
+                </div>
+
+                <div class="form-row">
+                    <label for="b-message">Notes / Special Requirements (optional)</label>
+                    <textarea id="b-message" rows="4"
+                              placeholder="Any packaging, quality, certification or delivery notes."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <label for="b-file">Attach Requirement Document (optional · PDF / DOC / DOCX · max 10 MB)</label>
+                    <input type="file" id="b-file" accept=".pdf,.doc,.docx" />
+                    <small class="file-hint" id="file-hint">No file selected</small>
+                </div>
+
+                <!-- hidden language field -->
+                <input type="hidden" id="b-language" value="en" />
+
+                <button type="submit" class="b2b-btn">Request Quote</button>
+            </form>
+
+            <!-- MESSAGE BOX -->
+            <div id="message-box" class="message-box"></div>
+
+        </div>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+        <p>© 2026 Rajharita Naturals. All rights reserved.</p>
+        <p>Pure by Nature. Made for Wellness.</p>
+    </footer>
+
+    <script th:src="@{/js/b2b.js}"></script>
+</body>
+</html>

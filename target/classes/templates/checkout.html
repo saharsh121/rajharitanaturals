@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout · Rajharita Naturals</title>
+    <link rel="stylesheet" th:href="@{/css/shop.css(v=20261031)}" />
+    <link rel="stylesheet" th:href="@{/css/coupon-showcase.css(v=20261028)}" />
+</head>
+<body>
+    <header class="customer-header">
+        <a class="customer-brand" href="/shop">Rajharita Naturals</a>
+        <nav class="customer-nav" aria-label="Customer navigation">
+            <a href="/shop">Shop</a>
+            <a class="active" href="/cart" aria-current="page">Cart</a>
+            <a href="/orders">My orders</a>
+        </nav>
+        <a class="account-link" href="/account">My account</a>
+    </header>
+    <div th:replace="~{fragments/coupon-showcase :: coupon-showcase}"></div>
+    <main>
+        <section class="intro"><p class="eyebrow">SECURE CHECKOUT</p><h1>Confirm your order</h1></section>
+        <p id="message-box" role="status" aria-live="polite"></p>
+        <section class="cart-layout">
+            <div class="checkout-card">
+                <h2>Delivery address</h2>
+                <div id="addresses"></div>
+                <a href="/account">Add or manage addresses</a>
+                <h2>Payment</h2>
+                <label class="payment-choice"><input type="radio" name="payment" value="COD" checked /> Cash on delivery</label>
+                <label class="payment-choice"><input type="radio" name="payment" value="RAZORPAY" /> UPI, credit/debit card (Razorpay)</label>
+                <p id="online-payment-notice" class="payment-notice">Online payment service is unavailable right now. Available soon. Please choose Cash on Delivery.</p>
+                <div class="coupon-row"><input id="coupon-code" placeholder="Coupon code" /><button id="apply-coupon">Apply</button></div>
+                <section class="coin-choice" aria-labelledby="coin-choice-title">
+                    <div class="coin-choice-heading">
+                        <span class="coin-mark" aria-hidden="true">🪙</span>
+                        <div><strong id="coin-choice-title">Pay with Rajharita Coins</strong><p>1 coin = ₹1</p></div>
+                    </div>
+                    <label class="coin-amount-label" for="coins-to-use">Coins to use</label>
+                    <div class="coin-amount-control">
+                        <input id="coins-to-use" type="number" min="0" step="1" value="0" inputmode="numeric" aria-describedby="coin-limit" />
+                        <span>coins</span>
+                    </div>
+                    <p><span id="coin-balance">0</span> coins available</p>
+                    <p id="coin-limit">Coins can cover up to 50% of your order total.</p>
+                    <p class="coin-earn-note">Earn 1% of your paid amount in coins after delivery.</p>
+                </section>
+            </div>
+            <aside class="summary">
+                <h2>Payment summary</h2>
+                <p>Items <strong id="subtotal">₹0.00</strong></p>
+                <p>Discount <strong id="discount">₹0.00</strong></p>
+                <p>Delivery <strong id="delivery">₹0.00</strong></p>
+                <p>Coins applied <strong id="coin-discount">−₹0.00</strong></p>
+                <p>Coins earned after delivery <strong id="coin-earn-preview">0</strong></p>
+                <p>Total <strong id="total">₹0.00</strong></p>
+                <button id="place-order">Place order</button>
+            </aside>
+        </section>
+    </main>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script th:src="@{/js/coupon-showcase.js(v=20261028)}"></script>
+    <script th:src="@{/js/checkout.js(v=20261031)}"></script>
+</body>
+</html>

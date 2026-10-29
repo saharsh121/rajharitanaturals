@@ -1,0 +1,472 @@
+/* =========================================================
+   RAJHARITA NATURALS — Investment Inquiry Page
+   Theme: Green · Elegant · Premium
+   ========================================================= */
+
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Cormorant Garamond', 'Georgia', serif;
+    background: #fff;
+    color: #1a1a1a;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* ---------- HEADER ---------- */
+.site-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px 60px;
+    background: #fff;
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #a8cc98;
+    box-shadow: 0 2px 14px rgba(107, 142, 35, 0.18);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-bar {
+    display: flex;
+    gap: 50px;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.35s ease;
+}
+
+.nav-bar a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 1.5px;
+    background: #4d6b1a;
+    transition: all 0.35s ease;
+    transform: translateX(-50%);
+}
+
+.nav-bar a:hover { color: #4d6b1a; }
+.nav-bar a:hover::after { width: 100%; }
+.nav-bar a[aria-current="page"] { color: #274e2d; font-weight: 700; }
+.nav-bar a[aria-current="page"]::after { width: 100%; height: 2px; background: #326338; }
+
+/* ---------- MAIN ---------- */
+.investment-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 24px 80px;
+    background:
+        radial-gradient(circle at 15% 10%, #fff 0%, transparent 55%),
+        radial-gradient(circle at 85% 90%, #fff 0%, transparent 55%),
+        linear-gradient(180deg, #fff 0%, #fff 55%, #fff 100%);
+}
+
+/* ---------- HERO (on green) ---------- */
+.investment-hero {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 34px;
+    animation: fadeUp 0.8s ease;
+}
+
+.hero-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    color: #1a1a1a;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 14px rgba(255, 255, 255, 0.35);
+}
+
+.hero-subheading {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #2e440e;
+    letter-spacing: 0.4px;
+    line-height: 1.5;
+    max-width: 720px;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- CARD ---------- */
+.investment-card {
+    width: 100%;
+    max-width: 780px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 44px 46px 40px;
+    box-shadow:
+        0 20px 60px rgba(45, 70, 20, 0.22),
+        0 4px 12px rgba(45, 70, 20, 0.10);
+    animation: cardIn 0.75s ease;
+    text-align: center;
+}
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- LOGO ---------- */
+.investment-logo-link {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 22px;
+}
+
+.investment-logo {
+    width: 150px;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.investment-logo:hover { transform: scale(1.04); }
+
+/* ---------- SECTIONS ---------- */
+.investment-section {
+    margin: 30px 0;
+    text-align: left;
+}
+
+.section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.section-heading::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: #4d6b1a;
+    border-radius: 2px;
+}
+
+.section-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18.5px;
+    line-height: 1.85;
+    color: #2a2a2a;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 6px;
+    font-weight: 500;
+}
+
+.section-text strong {
+    color: #4d6b1a;
+    font-weight: 700;
+}
+
+/* ---------- DIVIDER ---------- */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 26px 0;
+    color: #9aae8a;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14.5px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #dce5d4;
+}
+
+/* ---------- FORM ---------- */
+.investment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-row label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: #3a5210;
+    font-weight: 500;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #cfe0c0;
+    border-radius: 8px;
+    background: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: #1a1a1a;
+    outline: none;
+    transition: all 0.3s ease;
+    resize: vertical;
+}
+
+.form-row input::placeholder,
+.form-row textarea::placeholder {
+    color: #9aae8a;
+    font-style: italic;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+    border-color: #4d6b1a;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(77, 107, 26, 0.14);
+}
+
+/* File input */
+.form-row input[type="file"] {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 14.5px;
+}
+
+.form-row input[type="file"]::file-selector-button {
+    padding: 8px 14px;
+    margin-right: 12px;
+    background: #326338;
+    color: #fff;
+    border: 1px solid #326338;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11.5px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.form-row input[type="file"]::file-selector-button:hover {
+    background: #274e2d;
+    border-color: #274e2d;
+}
+
+.file-hint {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: #7a7a7a;
+    margin-top: 2px;
+    text-align: left;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+.investment-btn {
+    margin-top: 12px;
+    padding: 15px 20px;
+    background: #326338;
+    color: #fff;
+    border: 1px solid #326338;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.investment-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #274e2d;
+    transform: translateX(-101%);
+    transition: transform 0.4s ease;
+    z-index: 1;
+}
+
+.investment-btn { position: relative; z-index: 2; }
+
+.investment-btn:hover {
+    color: #fff;
+    border-color: #274e2d;
+    letter-spacing: 3.6px;
+    box-shadow: 0 10px 24px rgba(77, 107, 26, 0.34);
+}
+
+.investment-btn:hover::before { transform: translateX(0); }
+
+.investment-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* ---------- MESSAGE BOX ---------- */
+.message-box {
+    display: none;
+    margin-top: 20px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13.5px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    line-height: 1.55;
+    animation: fadeIn 0.4s ease;
+}
+
+.message-box.show { display: block; }
+
+.message-box.success {
+    background: #fff;
+    border: 1px solid #4d6b1a;
+    color: #2e440e;
+}
+
+.message-box.error {
+    background: rgba(190, 40, 40, 0.10);
+    border: 1px solid #be2828;
+    color: #7a1414;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer {
+    background: #1a1a1a;
+    color: #d9d3c5;
+    text-align: center;
+    padding: 26px 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+}
+
+.site-footer p { margin: 4px 0; }
+
+.site-footer p:last-child {
+    font-style: italic;
+    color: #a8a291;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 992px) {
+    .site-header { padding: 20px 30px; }
+    .nav-bar { gap: 18px; }
+    .nav-bar a { font-size: 13px; letter-spacing: 1.6px; }
+
+    .investment-main { padding: 40px 20px 70px; }
+    .investment-card { padding: 38px 32px 34px; }
+
+    .hero-heading { font-size: 40px; }
+    .hero-subheading { font-size: 19px; }
+}
+
+@media (max-width: 600px) {
+    .site-header { padding: 14px 14px; }
+
+    .nav-bar {
+        gap: 12px;
+        row-gap: 8px;
+    }
+
+    .nav-bar a {
+        font-size: 11px;
+        letter-spacing: 1.2px;
+    }
+
+    .investment-main { padding: 30px 14px 56px; }
+    .investment-card { padding: 30px 22px 28px; border-radius: 12px; }
+
+    .investment-logo { width: 120px; }
+
+    .hero-heading {
+        font-size: 30px;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-subheading {
+        font-size: 16px;
+    }
+
+    .section-heading { font-size: 19px; margin-bottom: 12px; }
+    .section-text { font-size: 16px; }
+
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+        font-size: 15px;
+        padding: 11px 12px;
+    }
+
+    .investment-btn {
+        padding: 13px 18px;
+        font-size: 11.5px;
+        letter-spacing: 2.4px;
+    }
+}
